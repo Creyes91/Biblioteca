@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class PlataformaController {
 
-    @GetMapping("/plataformas/nueva")
+    @GetMapping("/plataforma/nueva")
     public String nuevaPlataforma(Model model)
     {
         return "CreaPlataforma";
     }
 
-    @GetMapping("/plataforma")
+    @GetMapping("/plataforma/lista")
     public String listarPlataformas(Model model)
     {
         return "Plataformas";

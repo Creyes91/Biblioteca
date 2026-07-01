@@ -349,3 +349,53 @@ body {
     color: #64748b;
     width: 80px;
 }
+/* Contenedor para alinear los botones perfectamente */
+.actions-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Botones de acción mejorados */
+.btn-table {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.btn-edit {
+    background-color: #f1f5f9;
+    color: #1d3557;
+    border: 1px solid #cbd5e1;
+}
+
+.btn-edit:hover {
+    background-color: #1d3557;
+    color: #ffffff;
+    border-color: #1d3557;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(29, 53, 87, 0.15);
+}
+
+.btn-delete {
+    background-color: #fef2f2;
+    color: #ef4444;
+    border: 1px solid #fee2e2;
+}
+
+.btn-delete:hover {
+    background-color: #ef4444;
+    color: #ffffff;
+    border-color: #ef4444;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(239, 68, 68, 0.15);
+}
