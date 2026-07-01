@@ -3,51 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Biblioteca de Videojuegos</title>
-    <link rel="stylesheet" href="/index-style.css">
+    <title>Biblioteca de Videojuegos</title>
+    <link rel="stylesheet" href="index-style.css">
 </head>
 <body>
 
-<header class="navbar">
-    <div class="nav-container">
-        <div class="logo">
-            <svg viewBox="0 0 24 24" class="logo-icon">
-                <path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2Zm-10 7H9v2H8v-2H6v-1h2V10h1v2h2v1Zm4.5 1.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5Zm3-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5Z"/>
+<!-- Cabecera Principal (Azul Marino con Logo y Título) -->
+<header class="header-main">
+    <div class="header-container">
+        <!-- Logo: Libro & Juego -->
+        <div class="brand-logo">
+            <svg viewBox="0 0 100 80" class="logo-svg">
+                <!-- Icono de libro abierto -->
+                <path d="M10 20 Q 35 15, 50 25 Q 65 15, 90 20 L 90 70 Q 65 65, 50 75 Q 35 65, 10 70 Z" fill="none" stroke="#d4af37" stroke-width="4"/>
+                <line x1="50" y1="25" x2="50" y2="75" stroke="#d4af37" stroke-width="4"/>
+                <!-- Detalles de cruz de mando y botones -->
+                <path d="M25 45 H 35 M 30 40 V 50" stroke="#d4af37" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="65" cy="42" r="3" fill="#d4af37"/>
+                <circle cx="73" cy="48" r="3" fill="#d4af37"/>
             </svg>
-            <span>Game库</span>
+            <div class="logo-text">
+                <span class="logo-title">LIBRO & JUEGO</span>
+                <span class="logo-sub">BIBLIOTECA</span>
+            </div>
         </div>
 
-        <h1 class="main-title">Panel de Control</h1>
-
-        <div class="nav-spacer"></div>
+        <h1 class="app-title">BIBLIOTECA DE VIDEOJUEGOS</h1>
     </div>
 </header>
 
-<main class="dashboard">
-    <section class="menu-section">
-        <div class="section-icon">
-            <svg viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+<!-- Barra de Navegación Principal (Botones Superiores) -->
+<nav class="top-nav">
+    <div class="nav-buttons">
+        <a href="/plataformas" class="nav-btn active">PLATAFORMAS</a>
+        <a href="/juegos" class="nav-btn">JUEGOS</a>
+    </div>
+</nav>
+
+<!-- Contenedor del Contenido -->
+<main class="content-container">
+
+    <!-- Banner Index con Ilustración SVG integrada -->
+    <section class="banner-index">
+        <div class="banner-text">
+            <h2>Index</h2>
+            <p>Gestiona tu colección de plataformas y videojuegos con facilidad.</p>
         </div>
-        <h3>Plataformas</h3>
-        <p>Gestiona los sistemas de juego y fabricantes.</p>
-        <div class="button-group">
-            <a href="/plataformas/nuevo" class="btn btn-primary">Dar de Alta</a>
-            <a href="/plataformas" class="btn btn-secondary">Ver Listado</a>
+        <div class="banner-graphic">
+            <svg viewBox="0 0 400 150" class="shelf-svg">
+                <!-- Estante de madera -->
+                <rect x="10" y="120" width="380" height="12" fill="#8B5A2B" rx="3"/>
+                <!-- Consola clásica tipo NES -->
+                <rect x="40" y="75" width="80" height="45" fill="#CCCCCC"/>
+                <rect x="40" y="75" width="80" height="15" fill="#999999"/>
+                <rect x="50" y="100" width="25" height="10" fill="#333333"/>
+                <circle cx="95" cy="105" r="4" fill="#FF3333"/>
+                <circle cx="107" cy="105" r="4" fill="#FF3333"/>
+                <!-- Consola clásica vertical -->
+                <rect x="140" y="45" width="25" height="75" fill="#E6E6E6" rx="4"/>
+                <rect x="145" y="55" width="15" height="40" fill="#333333"/>
+                <circle cx="152" cy="105" r="3" fill="#3366FF"/>
+                <!-- Cartuchos/Juegos apilados -->
+                <rect x="185" y="90" width="50" height="10" fill="#444" rx="2"/>
+                <rect x="185" y="100" width="50" height="10" fill="#666" rx="2"/>
+                <rect x="185" y="110" width="50" height="10" fill="#555" rx="2"/>
+            </svg>
         </div>
     </section>
 
-    <section class="menu-section">
-        <div class="section-icon">
-            <svg viewBox="0 0 24 24"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg>
-        </div>
-        <h3>Juegos</h3>
-        <p>Administra el catálogo completo de títulos.</p>
-        <div class="button-group">
-            <a href="/juegos/nuevo" class="btn btn-primary">Dar de Alta</a>
-            <a href="/juegos" class="btn btn-secondary">Ver Listado</a>
-        </div>
-    </section>
+    <!-- Sección de Tarjetas de Gestión -->
+    <div class="grid-management">
+
+        <!-- Tarjeta Plataformas -->
+        <article class="card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <!-- Iconos abstractos de sistemas -->
+                    <svg viewBox="0 0 24 24" width="40" height="40" fill="#1d3557">
+                        <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
+                    </svg>
+                </div>
+                <h3>Gestionar Plataformas</h3>
+            </div>
+            <div class="card-body">
+                <a href="/plataformas" class="action-btn">VER PLATAFORMAS</a>
+                <a href="/plataformas/nuevo" class="action-btn">AÑADIR NUEVA PLATAFORMA</a>
+            </div>
+        </article>
+
+        <!-- Tarjeta Juegos -->
+        <article class="card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <!-- Icono de juego -->
+                    <svg viewBox="0 0 24 24" width="40" height="40" fill="#1d3557">
+                        <path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H9v2H8v-2H6v-1h2V10h1v2h2v1z"/>
+                    </svg>
+                </div>
+                <h3>Explorar Juegos</h3>
+            </div>
+            <div class="card-body">
+                <a href="/juegos" class="action-btn">VER JUEGOS</a>
+                <a href="/juegos/nuevo" class="action-btn">AÑADIR NUEVO JUEGO</a>
+            </div>
+        </article>
+
+    </div>
 </main>
+
+<!-- Pie de página -->
+<footer class="footer-links">
+    <div class="links">
+        <a href="#">Acerca de</a>
+        <a href="#">Contacto</a>
+    </div>
+    <p>&copy; 2026 Biblioteca de Videojuegos</p>
+</footer>
 
 </body>
 </html>

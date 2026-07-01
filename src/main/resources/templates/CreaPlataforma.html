@@ -3,36 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alta de Plataforma</title>
-    <link rel="stylesheet" href="/plataforma.css">
+    <title>Alta de Plataforma - Biblioteca de Videojuegos</title>
+    <link rel="stylesheet" href="/index-style.css">
 </head>
 <body>
 
-<div class="form-container">
-    <h2>Registrar Nueva Plataforma</h2>
-    <p class="subtitle">Introduce los datos para dar de alta la plataforma en el sistema.</p>
+<!-- Cabecera Principal (Mismo diseño que el Index) -->
+<header class="header-main">
+    <div class="header-container">
+        <div class="brand-logo">
+            <svg viewBox="0 0 100 80" class="logo-svg">
+                <path d="M10 20 Q 35 15, 50 25 Q 65 15, 90 20 L 90 70 Q 65 65, 50 75 Q 35 65, 10 70 Z" fill="none" stroke="#d4af37" stroke-width="4"/>
+                <line x1="50" y1="25" x2="50" y2="75" stroke="#d4af37" stroke-width="4"/>
+                <path d="M25 45 H 35 M 30 40 V 50" stroke="#d4af37" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="65" cy="42" r="3" fill="#d4af37"/>
+                <circle cx="73" cy="48" r="3" fill="#d4af37"/>
+            </svg>
+            <div class="logo-text">
+                <span class="logo-title">LIBRO & JUEGO</span>
+                <span class="logo-sub">BIBLIOTECA</span>
+            </div>
+        </div>
+        <h1 class="app-title">BIBLIOTECA DE VIDEOJUEGOS</h1>
+    </div>
+</header>
 
-    <!-- Cambia el action por la ruta de tu controlador de Spring (ej. /plataformas/guardar) -->
-    <form action="/plataformas" method="POST">
+<!-- Barra de Navegación de Retorno -->
+<nav class="top-nav">
+    <div class="nav-buttons">
+        <a href="/index" class="nav-btn">VOLVER AL PANEL PRINCIPAL</a>
+    </div>
+</nav>
 
-        <div class="form-group">
-            <label for="fabricante">Fabricante / Empresa</label>
-            <input type="text" id="fabricante" name="fabricante" placeholder="Ej. Sony, Nintendo, Microsoft" required>
+<!-- Contenedor del Formulario -->
+<main class="content-container flex-center">
+
+    <section class="card form-card">
+        <div class="card-header">
+            <div class="card-icon">
+                <svg viewBox="0 0 24 24" width="40" height="40" fill="#1d3557">
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                </svg>
+            </div>
+            <h3>Registrar Nueva Plataforma</h3>
         </div>
 
-        <div class="form-group">
-            <label for="nombre">Nombre de la Plataforma</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Ej. PlayStation 5, Switch" required>
-        </div>
+        <form action="/plataformas" method="POST" class="card-body">
 
-        <div class="form-group">
-            <label for="anyo">Año de Lanzamiento</label>
-            <input type="number" id="anyo" name="anyo" min="1950" max="2100" placeholder="Ej. 2020" required>
-        </div>
+            <div class="form-group">
+                <label for="fabricante">Fabricante / Empresa</label>
+                <input type="text" id="fabricante" name="fabricante" placeholder="Ej. Sony, Nintendo, Microsoft" required>
+            </div>
 
-        <button type="submit" class="btn-submit">Guardar Plataforma</button>
-    </form>
-</div>
+            <div class="form-group">
+                <label for="nombre">Nombre de la Plataforma</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ej. PlayStation 5, Switch" required>
+            </div>
+
+            <div class="form-group">
+                <label for="anyo">Año de Lanzamiento</label>
+                <input type="number" id="anyo" name="anyo" min="1950" max="2100" placeholder="Ej. 2020" required>
+            </div>
+
+            <button type="submit" class="action-btn btn-submit">GUARDAR PLATAFORMA</button>
+        </form>
+    </section>
+
+</main>
+
+<!-- Pie de página -->
+<footer class="footer-links">
+    <div class="links">
+        <a href="#">Acerca de</a>
+        <a href="#">Contacto</a>
+    </div>
+    <p>&copy; 2026 Biblioteca de Videojuegos</p>
+</footer>
 
 </body>
 </html>
