@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listado de Plataformas - Biblioteca de Videojuegos</title>
+  <link rel="stylesheet" href="/index-style.css">
+</head>
+<body>
+
+<!-- Cabecera Principal -->
+<header class="header-main">
+  <div class="header-container">
+    <div class="brand-logo">
+      <svg viewBox="0 0 100 80" class="logo-svg">
+        <path d="M10 20 Q 35 15, 50 25 Q 65 15, 90 20 L 90 70 Q 65 65, 50 75 Q 35 65, 10 70 Z" fill="none" stroke="#d4af37" stroke-width="4"/>
+        <line x1="50" y1="25" x2="50" y2="75" stroke="#d4af37" stroke-width="4"/>
+        <path d="M25 45 H 35 M 30 40 V 50" stroke="#d4af37" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="65" cy="42" r="3" fill="#d4af37"/>
+        <circle cx="73" cy="48" r="3" fill="#d4af37"/>
+      </svg>
+      <div class="logo-text">
+        <span class="logo-title">LIBRO & JUEGO</span>
+        <span class="logo-sub">BIBLIOTECA</span>
+      </div>
+    </div>
+    <h1 class="app-title">BIBLIOTECA DE VIDEOJUEGOS</h1>
+  </div>
+</header>
+
+<!-- Barra de Navegación de Retorno / Acciones -->
+<nav class="top-nav">
+  <div class="nav-buttons">
+    <a href="/index" class="nav-btn">VOLVER AL PANEL PRINCIPAL</a>
+    <a href="/plataformas/nuevo" class="nav-btn">AÑADIR NUEVA PLATAFORMA</a>
+  </div>
+</nav>
+
+<!-- Contenedor de la Tabla -->
+<main class="content-container">
+
+  <section class="card">
+    <div class="card-header">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" width="40" height="40" fill="#1d3557">
+          <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
+        </svg>
+      </div>
+      <h3>Plataformas Registradas</h3>
+    </div>
+
+    <div class="table-container">
+      <table class="custom-table">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Fabricante / Empresa</th>
+          <th>Nombre de la Plataforma</th>
+          <th>Año de Lanzamiento</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Datos de ejemplo estáticos. Cuando uses Thymeleaf en Spring Boot,
+             reemplazarás esto con th:each="p : ${plataformas}" -->
+        <tr>
+          <td>1</td>
+          <td>Sony</td>
+          <td>PlayStation</td>
+          <td>1994</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Nintendo</td>
+          <td>Nintendo Switch</td>
+          <td>2017</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Microsoft</td>
+          <td>Xbox Series X</td>
+          <td>2020</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<!-- Pie de página -->
+<footer class="footer-links">
+  <div class="links">
+    <a href="#">Acerca de</a>
+    <a href="#">Contacto</a>
+  </div>
+  <p>&copy; 2026 Biblioteca de Videojuegos</p>
+</footer>
+
+</body>
+</html>
