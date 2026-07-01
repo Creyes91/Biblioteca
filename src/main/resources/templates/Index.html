@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Biblioteca de Videojuegos</title>
+    <link rel="stylesheet" href="/index-style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <svg viewBox="0 0 24 24" class="logo-icon">
+                <path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2Zm-10 7H9v2H8v-2H6v-1h2V10h1v2h2v1Zm4.5 1.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5Zm3-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5Z"/>
+            </svg>
+            <span>Game库</span>
+        </div>
+
+        <h1 class="main-title">Panel de Control</h1>
+
+        <div class="nav-spacer"></div>
+    </div>
+</header>
+
+<main class="dashboard">
+    <section class="menu-section">
+        <div class="section-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+        </div>
+        <h3>Plataformas</h3>
+        <p>Gestiona los sistemas de juego y fabricantes.</p>
+        <div class="button-group">
+            <a href="/plataformas/nuevo" class="btn btn-primary">Dar de Alta</a>
+            <a href="/plataformas" class="btn btn-secondary">Ver Listado</a>
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <div class="section-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg>
+        </div>
+        <h3>Juegos</h3>
+        <p>Administra el catálogo completo de títulos.</p>
+        <div class="button-group">
+            <a href="/juegos/nuevo" class="btn btn-primary">Dar de Alta</a>
+            <a href="/juegos" class="btn btn-secondary">Ver Listado</a>
+        </div>
+    </section>
+</main>
+
+</body>
+</html>

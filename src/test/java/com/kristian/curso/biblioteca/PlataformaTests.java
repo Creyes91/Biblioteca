@@ -2,7 +2,7 @@ package com.kristian.curso.biblioteca;
 
 
 import com.kristian.curso.biblioteca.model.Plataforma;
-import com.kristian.curso.biblioteca.service.PlataformaService;
+import com.kristian.curso.biblioteca.service.IPlataformaService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class PlataformaTests {
 
     @Autowired
-    private PlataformaService plataformaService;
+    private IPlataformaService plataformaService;
 
     @Test
     public void create()
