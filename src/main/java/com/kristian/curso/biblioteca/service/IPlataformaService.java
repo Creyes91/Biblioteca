@@ -10,4 +10,5 @@ public interface IPlataformaService
     public void delete(long id);
     public void update(Plataforma plataforma);
     public List<Plataforma> findAll();
+    public Plataforma findById(long id);
 }

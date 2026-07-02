@@ -1,10 +1,12 @@
 package com.kristian.curso.biblioteca.repository;
 
 import com.kristian.curso.biblioteca.model.Plataforma;
+import org.springframework.data.domain.Example;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IPlataformaRepo extends JpaRepository<Plataforma, Long> {
 
+    Example<? extends Plataforma> id(long id);
 }

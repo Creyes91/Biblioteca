@@ -61,42 +61,19 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>1</td>
-          <td>Sony</td>
-          <td>PlayStation</td>
-          <td>1994</td>
+        <tr th:each="p : ${plataformas}">
+          <td th:text="${p.id}">1</td>
+          <td th:text="${p.fabricante}">Sony</td>
+          <td th:text="${p.nombre}">PlayStation</td>
+          <td th:text="${p.anyo}">1994</td>
           <td style="text-align: center;">
             <div class="actions-wrapper">
-              <a href="/plataforma/editar/1" class="btn-table btn-edit">✏️  </a>
-              <a href="/plataforma/eliminar/1" class="btn-table btn-delete" onclick="return confirm('¿Seguro que quieres eliminar esta plataforma?')">🗑️</a>
+              <a th:href="@{/plataforma/editar(id=${p.id})}" class="btn-table btn-edit">✏️  </a>
+              <a th:href="@{/plataforma/eliminar(id=${p.id})}" class="btn-table btn-delete" onclick="return confirm('¿Seguro que quieres eliminar esta plataforma?')">🗑️</a>
             </div>
           </td>
         </tr>
-        <tr>
-          <td>2</td>
-          <td>Nintendo</td>
-          <td>Nintendo Switch</td>
-          <td>2017</td>
-          <td style="text-align: center;">
-            <div class="actions-wrapper">
-              <a href="/plataforma/editar/2" class="btn-table btn-edit">✏️  </a>
-              <a href="/plataforma/eliminar/2" class="btn-table btn-delete" onclick="return confirm('¿Seguro que quieres eliminar esta plataforma?')">🗑️</a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Microsoft</td>
-          <td>Xbox Series X</td>
-          <td>2020</td>
-          <td style="text-align: center;">
-            <div class="actions-wrapper">
-              <a href="/plataforma/editar/3" class="btn-table btn-edit">✏️  </a>
-              <a href="/plataforma/eliminar/3" class="btn-table btn-delete" onclick="return confirm('¿Seguro que quieres eliminar esta plataforma?')">🗑️</a>
-            </div>
-          </td>
-        </tr>
+
         </tbody>
       </table>
     </div>

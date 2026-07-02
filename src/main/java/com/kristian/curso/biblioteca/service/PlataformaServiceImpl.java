@@ -4,6 +4,7 @@ import com.kristian.curso.biblioteca.model.Plataforma;
 import com.kristian.curso.biblioteca.repository.IPlataformaRepo;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -28,12 +29,18 @@ public class PlataformaServiceImpl implements IPlataformaService {
 
     @Override
     public void update(Plataforma plataforma) {
-
+        this.repo.save(plataforma);
 
     }
 
     @Override
     public List<Plataforma> findAll() {
-        return List.of();
+
+        return this.repo.findAll().stream().sorted(Comparator.comparing(Plataforma::getId)).toList();
+    }
+
+    @Override
+    public Plataforma findById(long id) {
+        return this.repo.findById(id).get();
     }
 }
