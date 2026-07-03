@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alta de Plataforma - Biblioteca de Videojuegos</title>
-    <link rel="stylesheet" href="/index-style.css">
+    <title th:text="${titulo}">Gestión de Datos - Biblioteca de Videojuegos</title>
+    <link rel="stylesheet" th:href="@{/index-style.css}">
 </head>
 <body>
 
-<!-- Cabecera Principal (Mismo diseño que el Index) -->
+<!-- Cabecera Principal -->
 <header class="header-main">
     <div class="header-container">
         <div class="brand-logo">
@@ -31,11 +31,11 @@
 <!-- Barra de Navegación de Retorno -->
 <nav class="top-nav">
     <div class="nav-buttons">
-        <a href="/" class="nav-btn">VOLVER AL PANEL PRINCIPAL</a>
+        <a th:href="@{/}" class="nav-btn">VOLVER AL PANEL PRINCIPAL</a>
     </div>
 </nav>
 
-<!-- Contenedor del Formulario -->
+<!-- Contenedor del Formulario Genérico -->
 <main class="content-container flex-center">
 
     <section class="card form-card">
@@ -45,28 +45,27 @@
                     <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
                 </svg>
             </div>
-            <h3 th:text="${titulo}">Registrar Nueva Plataforma</h3>
+            <h3 th:text="${titulo}">Registrar Nuevo Elemento</h3>
         </div>
 
-        <form th:action="@{/plataforma/guardar}" th:object="${nuevaPlataforma}" method="POST" class="card-body">
+        <!-- Formulario Genérico -->
+        <form th:action="@{${action}}" method="POST" class="card-body">
 
-            <input type="hidden" th:field="*{id}" />
-            <div class="form-group">
-                <label for="fabricante">Fabricante / Empresa</label>
-                <input type="text" id="fabricante" name="fabricante" placeholder="Ej. Sony, Nintendo, Microsoft" th:field="*{fabricante}" required>
+            <!-- Campo oculto para el ID si estamos editando -->
+            <input type="hidden" name="id" th:value="${id}" />
+
+            <!-- Iteración dinámica sobre los campos recibidos -->
+            <div th:each="campo : ${campos}" class="form-group">
+                <label th:for="${campo.nombreCampo}" th:text="${campo.label}"></label>
+                <input th:type="${campo.tipo}"
+                       th:name="${campo.nombreCampo}"
+                       th:id="${campo.nombreCampo}"
+                       th:value="${campo.valor}"
+                       th:placeholder="${'Ej. ' + campo.valor}"
+                       required>
             </div>
 
-            <div class="form-group">
-                <label for="nombre">Nombre de la Plataforma</label>
-                <input type="text" id="nombre" name="nombre"  placeholder="Ej. PlayStation 5, Switch" th:field="*{nombre}" required>
-            </div>
-
-            <div class="form-group">
-                <label for="anyo">Año de Lanzamiento</label>
-                <input type="number" id="anyo" name="anyo" min="1950" max="2100" placeholder="Ej. 2020" th:field="*{anyo}" required>
-            </div>
-
-            <button type="submit" class="action-btn btn-submit">GUARDAR PLATAFORMA</button>
+            <button type="submit" class="action-btn btn-submit">GUARDAR REGISTRO</button>
         </form>
     </section>
 

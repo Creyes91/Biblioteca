@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca de Videojuegos</title>
-    <link rel="stylesheet" href="index-style.css">
+    <!-- Arreglado con th:href para que no falle con el context-path -->
+    <link rel="stylesheet" th:href="@{/index-style.css}">
 </head>
 <body>
 
@@ -32,8 +33,6 @@
     </div>
 </header>
 
-<!-- Barra de Navegación Principal (Botones Superiores) -->
-
 <!-- Contenedor del Contenido -->
 <main class="content-container">
 
@@ -41,7 +40,7 @@
     <section class="banner-index">
         <div class="banner-text">
             <h2>Index</h2>
-            <p>Gestiona tu colección de plataformas y videojuegos con facilidad.</p>
+            <p>Gestiona tu colección de plataformas, videojuegos y géneros con facilidad.</p>
         </div>
         <div class="banner-graphic">
             <svg viewBox="0 0 400 150" class="shelf-svg">
@@ -72,7 +71,6 @@
         <article class="card">
             <div class="card-header">
                 <div class="card-icon">
-                    <!-- Iconos abstractos de sistemas -->
                     <svg viewBox="0 0 24 24" width="40" height="40" fill="#1d3557">
                         <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
                     </svg>
@@ -80,8 +78,8 @@
                 <h3>Gestionar Plataformas</h3>
             </div>
             <div class="card-body">
-                <a href="/plataforma/lista" class="action-btn">VER PLATAFORMAS</a>
-                <a href="/plataforma/nueva" class="action-btn">AÑADIR NUEVA PLATAFORMA</a>
+                <a th:href="@{/plataforma/lista}" class="action-btn">VER PLATAFORMAS</a>
+                <a th:href="@{/plataforma/nueva}" class="action-btn">AÑADIR NUEVA PLATAFORMA</a>
             </div>
         </article>
 
@@ -89,7 +87,6 @@
         <article class="card">
             <div class="card-header">
                 <div class="card-icon">
-                    <!-- Icono de juego -->
                     <svg viewBox="0 0 24 24" width="40" height="40" fill="#1d3557">
                         <path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H9v2H8v-2H6v-1h2V10h1v2h2v1z"/>
                     </svg>
@@ -97,8 +94,25 @@
                 <h3>Explorar Juegos</h3>
             </div>
             <div class="card-body">
-                <a href="/juegos" class="action-btn">VER JUEGOS</a>
-                <a href="/juegos/nuevo" class="action-btn">AÑADIR NUEVO JUEGO</a>
+                <a th:href="@{/juegos}" class="action-btn">VER JUEGOS</a>
+                <a th:href="@{/juegos/nuevo}" class="action-btn">AÑADIR NUEVO JUEGO</a>
+            </div>
+        </article>
+
+        <!-- NUEVA Tarjeta Géneros -->
+        <article class="card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <!-- Icono de etiqueta/tag para géneros -->
+                    <svg viewBox="0 0 24 24" width="40" height="40" fill="#1d3557">
+                        <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/>
+                    </svg>
+                </div>
+                <h3>Organizar Géneros</h3>
+            </div>
+            <div class="card-body">
+                <a th:href="@{/genero/lista}" class="action-btn">VER GÉNEROS</a>
+                <a th:href="@{/genero/nuevo}" class="action-btn">AÑADIR NUEVO GÉNERO</a>
             </div>
         </article>
 

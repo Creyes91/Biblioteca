@@ -8,5 +8,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IPlataformaRepo extends JpaRepository<Plataforma, Long> {
 
-    Example<? extends Plataforma> id(long id);
 }

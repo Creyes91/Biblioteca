@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Listado de Plataformas - Biblioteca de Videojuegos</title>
-  <link rel="stylesheet" href="/index-style.css">
+  <title th:text="${titulo}">Listado - Biblioteca de Videojuegos</title>
+  <link rel="stylesheet" th:href="@{/index-style.css}">
 </head>
 <body>
 
-<!-- Cabecera Principal -->
 <header class="header-main">
   <div class="header-container">
     <div class="brand-logo">
@@ -28,17 +27,14 @@
   </div>
 </header>
 
-<!-- Barra de Navegación de Retorno / Acciones -->
 <nav class="top-nav">
   <div class="nav-buttons">
-    <a href="/" class="nav-btn">VOLVER AL PANEL PRINCIPAL</a>
-    <a href="/plataforma/nueva" class="nav-btn">AÑADIR NUEVA PLATAFORMA</a>
+    <a th:href="@{/}" class="nav-btn">VOLVER AL PANEL PRINCIPAL</a>
+    <a th:href="@{${rutaNueva}}" class="nav-btn">AÑADIR NUEVO ELEMENTO</a>
   </div>
 </nav>
 
-<!-- Contenedor de la Tabla -->
 <main class="content-container">
-
   <section class="card">
     <div class="card-header">
       <div class="card-icon">
@@ -46,42 +42,35 @@
           <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
         </svg>
       </div>
-      <h3>Plataformas Registradas</h3>
+      <h3 th:text="${h3}">Elementos Registrados</h3>
     </div>
 
     <div class="table-container">
       <table class="custom-table">
         <thead>
         <tr>
-          <th>ID</th>
-          <th>Fabricante / Empresa</th>
-          <th>Nombre de la Plataforma</th>
-          <th>Año de Lanzamiento</th>
+          <!-- Cabeceras dinámicas -->
+          <th th:each="col : ${columnas}" th:text="${col}"></th>
           <th style="text-align: center; width: 220px;">Acciones</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="p : ${plataformas}">
-          <td th:text="${p.id}">1</td>
-          <td th:text="${p.fabricante}">Sony</td>
-          <td th:text="${p.nombre}">PlayStation</td>
-          <td th:text="${p.anyo}">1994</td>
+        <tr th:each="fila : ${filas}">
+          <!-- Celdas dinámicas -->
+          <td th:each="celda : ${fila.celdas}" th:text="${celda}"></td>
           <td style="text-align: center;">
             <div class="actions-wrapper">
-              <a th:href="@{/plataforma/editar(id=${p.id})}" class="btn-table btn-edit">✏️  </a>
-              <a th:href="@{/plataforma/eliminar(id=${p.id})}" class="btn-table btn-delete" onclick="return confirm('¿Seguro que quieres eliminar esta plataforma?')">🗑️</a>
+              <a th:href="@{${rutaEditar}(id=${fila.id})}" class="btn-table btn-edit">✏️</a>
+              <a th:href="@{${rutaEliminar}(id=${fila.id})}" class="btn-table btn-delete" onclick="return confirm('¿Seguro?')">🗑️</a>
             </div>
           </td>
         </tr>
-
         </tbody>
       </table>
     </div>
   </section>
-
 </main>
 
-<!-- Pie de página -->
 <footer class="footer-links">
   <div class="links">
     <a href="#">Acerca de</a>
