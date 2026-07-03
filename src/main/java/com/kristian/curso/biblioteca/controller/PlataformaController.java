@@ -23,6 +23,7 @@ public class PlataformaController {
 
     public PlataformaController(PlataformaServiceImpl plataformaService)
     {
+
         this.plataformaService = plataformaService;
     }
 

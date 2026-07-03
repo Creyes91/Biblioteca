@@ -7,22 +7,17 @@ import lombok.*;
 @Table(name = "t_plataforma")
 @NoArgsConstructor
 @ToString
+@Getter
+@Setter
 public class Plataforma {
-    @Getter
-    @Setter
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Getter
-    @Setter
     @Column(name="empresa", nullable = false)
     private String fabricante;
-    @Getter
-    @Setter
     @Column(nullable = false)
     private String nombre;
-    @Getter
-    @Setter
     private int anyo;
 
     public Plataforma(String fabricante, String nombre, int anyo) {

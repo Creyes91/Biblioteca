@@ -142,7 +142,8 @@ body {
 /* Cuadrícula de las secciones */
 .grid-management {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    /* Cambiamos 450px a 300px */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
 }
 
