@@ -13,7 +13,7 @@ public class Plataforma {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @Column(name="empresa", nullable = false)
     private String fabricante;
     @Column(nullable = false)

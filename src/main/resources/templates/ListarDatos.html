@@ -57,9 +57,21 @@
         <tbody>
         <tr th:each="fila : ${filas}">
           <!-- Celdas dinámicas -->
-          <td th:each="celda : ${fila.celdas}" th:text="${celda}"></td>
+          <td th:each="celda : ${fila.celdas}" >
+            <!-- Contenedor fantasma para la lógica -->
+
+            <div th:if="${celda != null and celda.toString().startsWith('http')}">
+              <img th:src="${celda}" style="width: 60px; height: 60px; border: 1px solid black;">
+            </div>
+
+            <!-- 3. Pon otro bloque para el texto, solo si NO empieza por http -->
+            <div th:unless="${celda != null and celda.toString().startsWith('http')}">
+              <span th:text="${celda}"></span>
+            </div>
+          </td>
           <td style="text-align: center;">
             <div class="actions-wrapper">
+              <a th:if="${rutaPdf != null}" th:href="@{${rutaPdf}(id=${fila.id})}" class="btn-table btn-pdf" title="Descargar PDF">PDF</a>
               <a th:href="@{${rutaEditar}(id=${fila.id})}" class="btn-table btn-edit">✏️</a>
               <a th:href="@{${rutaEliminar}(id=${fila.id})}" class="btn-table btn-delete" onclick="return confirm('¿Seguro?')">🗑️</a>
             </div>

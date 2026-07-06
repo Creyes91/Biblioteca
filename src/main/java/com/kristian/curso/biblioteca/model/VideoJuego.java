@@ -14,7 +14,7 @@ public class VideoJuego {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     String titulo;
     private int calificacion;
     private boolean favorito;

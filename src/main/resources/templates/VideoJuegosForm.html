@@ -40,7 +40,7 @@
       <h3 th:text="${titulo}">Registrar Videojuego</h3>
     </div>
 
-    <form th:action="@{/juego/guardar}" method="POST" class="card-body">
+    <form th:action="@{/juegos/guarda}" method="POST" class="card-body">
 
       <input type="hidden" name="id" th:value="${juego != null ? juego.id : ''}" />
 
@@ -50,13 +50,21 @@
       </div>
 
       <div class="form-group">
-        <label>Calificación (1-10)</label>
-        <input type="number" name="calificacion" th:value="${juego != null ? juego.calificacion : ''}" min="1" max="10" required>
+        <label>Calificación (1-5)</label>
+        <input type="number" name="calificacion" th:value="${juego != null ? juego.calificacion : ''}" min="1" max="5" required>
       </div>
 
       <div class="form-group">
         <label>URL Imagen</label>
         <input type="text" name="urlImagen" th:value="${juego != null ? juego.urlImagen : ''}">
+      </div>
+
+      <!-- Nuevo Checkbox de Favorito -->
+      <div class="form-group" style="flex-direction: row; align-items: center; gap: 10px; justify-content: flex-start;">
+        <input type="checkbox" name="favorito" value="true"
+               th:checked="${juego != null && juego.favorito}"
+               style="width: 20px; height: 20px; cursor: pointer;">
+        <label style="margin: 0; font-weight: bold; color: #1d3557;">¿Marcar como favorito?</label>
       </div>
 
       <!-- Selects con estilo integrado -->

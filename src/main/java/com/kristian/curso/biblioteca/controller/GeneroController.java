@@ -46,7 +46,7 @@ public class GeneroController {
         model.addAttribute("h3", "Géneros Registrados");
         model.addAttribute("columnas", List.of("ID", "Nombre", "Descripcion"));
         model.addAttribute("filas", filas);
-        model.addAttribute("rutaNueva", "/genero/nueva");
+        model.addAttribute("rutaNueva", "/genero/nuevo");
         model.addAttribute("rutaEditar", "/genero/editar");
         model.addAttribute("rutaEliminar", "/genero/eliminar");
 

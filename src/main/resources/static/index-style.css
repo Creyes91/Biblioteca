@@ -400,3 +400,17 @@ body {
     transform: translateY(-1px);
     box-shadow: 0 4px 6px rgba(239, 68, 68, 0.15);
 }
+
+/* Estilo específico para el botón PDF */
+.btn-pdf {
+    background-color: #fffaf0; /* Fondo crema muy suave */
+    color: #d4af37;           /* Dorado del logo */
+    border: 1px solid #d4af37;
+}
+
+.btn-pdf:hover {
+    background-color: #d4af37; /* Se vuelve dorado al pasar el ratón */
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(212, 175, 55, 0.2);
+}
