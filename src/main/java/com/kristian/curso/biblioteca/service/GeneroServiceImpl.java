@@ -14,20 +14,22 @@ public class GeneroServiceImpl implements IGeneroService {
     public GeneroServiceImpl(IGeneroRepo generoRepo) {
         this.generoRepo = generoRepo;
     }
-
+    @Override
     public Genero save(Genero genero) {
         return this.generoRepo.save(genero);
     }
-
+    @Override
     public List<Genero> findAll() {
         return this.generoRepo.findAll();
     }
 
+    @Override
     public Genero findById(Long id) {
         return this.generoRepo.findById(id).get();
     }
 
-    public void delete (long id) {
+    @Override
+    public void delete(long id) {
         this.generoRepo.deleteById(id);
     }
 
