@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:text="${titulo}">Gestión de Videojuegos</title>
+  <link rel="stylesheet" th:href="@{/index-style.css}">
+</head>
+<body>
+
+<!-- Cabecera con el logo original -->
+<header class="header-main">
+  <div class="header-container">
+    <div class="brand-logo">
+      <svg viewBox="0 0 100 80" class="logo-svg">
+        <path d="M10 20 Q 35 15, 50 25 Q 65 15, 90 20 L 90 70 Q 65 65, 50 75 Q 35 65, 10 70 Z" fill="none" stroke="#d4af37" stroke-width="4"/>
+        <line x1="50" y1="25" x2="50" y2="75" stroke="#d4af37" stroke-width="4"/>
+        <path d="M25 45 H 35 M 30 40 V 50" stroke="#d4af37" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="65" cy="42" r="3" fill="#d4af37"/>
+        <circle cx="73" cy="48" r="3" fill="#d4af37"/>
+      </svg>
+      <div class="logo-text">
+        <span class="logo-title">LIBRO & JUEGO</span>
+        <span class="logo-sub">BIBLIOTECA</span>
+      </div>
+    </div>
+    <h1 class="app-title">BIBLIOTECA DE VIDEOJUEGOS</h1>
+  </div>
+</header>
+
+<nav class="top-nav">
+  <div class="nav-buttons">
+    <a th:href="@{/}" class="nav-btn">VOLVER AL PANEL PRINCIPAL</a>
+  </div>
+</nav>
+
+<main class="content-container flex-center">
+  <section class="card form-card">
+    <div class="card-header">
+      <h3 th:text="${titulo}">Registrar Videojuego</h3>
+    </div>
+
+    <form th:action="@{/juego/guardar}" method="POST" class="card-body">
+
+      <input type="hidden" name="id" th:value="${juego != null ? juego.id : ''}" />
+
+      <div class="form-group">
+        <label>Título</label>
+        <input type="text" name="titulo" th:value="${juego != null ? juego.titulo : ''}" required>
+      </div>
+
+      <div class="form-group">
+        <label>Calificación (1-10)</label>
+        <input type="number" name="calificacion" th:value="${juego != null ? juego.calificacion : ''}" min="1" max="10" required>
+      </div>
+
+      <div class="form-group">
+        <label>URL Imagen</label>
+        <input type="text" name="urlImagen" th:value="${juego != null ? juego.urlImagen : ''}">
+      </div>
+
+      <!-- Selects con estilo integrado -->
+      <div class="form-group">
+        <label>Plataforma</label>
+        <select name="plataforma_id" style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; background-color: #f8fafc;">
+          <option th:each="p : ${plataformas}"
+                  th:value="${p.id}"
+                  th:text="${p.nombre}"
+                  th:selected="${juego != null && juego.plataforma != null && juego.plataforma.id == p.id}"></option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Género</label>
+        <select name="genero_id" style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; background-color: #f8fafc;">
+          <option th:each="g : ${generos}"
+                  th:value="${g.id}"
+                  th:text="${g.nombre}"
+                  th:selected="${juego != null && juego.genero != null && juego.genero.id == g.id}"></option>
+        </select>
+      </div>
+
+      <button type="submit" class="action-btn btn-submit">GUARDAR VIDEOJUEGO</button>
+    </form>
+  </section>
+</main>
+
+</body>
+</html>
